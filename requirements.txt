@@ -1,0 +1,16 @@
+# Основные зависимости
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+psycopg2-binary>=2.9.7
+python-dotenv>=1.0.0
+urllib3>=2.0.0  # Для поддержки retry
+
+# Для логирования
+structlog>=23.1.0
+
+# Для парсинга дат (опционально, для будущих парсеров)
+dateparser>=1.1.8
+pytz>=2023.3
+
+# Для работы с JSON
+pydantic>=2.5.0

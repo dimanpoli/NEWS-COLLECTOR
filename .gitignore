@@ -1,0 +1,9 @@
+manuals/
+.env
+
+logs/
+
+all_files_list.txt
+combined_code.txt
+combiner_2.py
+combiner_structure.py

@@ -1,0 +1,43 @@
+# Игнорируем ненужные файлы при сборке Docker образа
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Логи и данные
+logs/
+*.log
+data/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Git
+.git/
+.gitignore
+
+# Операционные системы
+.DS_Store
+Thumbs.db
+
+# Тестовые данные
+test/
+tests/
+*.test
