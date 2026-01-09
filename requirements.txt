@@ -5,6 +5,9 @@ psycopg2-binary>=2.9.7
 python-dotenv>=1.0.0
 urllib3>=2.0.0  # Для поддержки retry
 
+# Для RSS парсинга
+feedparser==6.0.10
+
 # Для логирования
 structlog>=23.1.0
 

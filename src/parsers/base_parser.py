@@ -37,27 +37,25 @@ class BaseParser(ABC):
         pass
     
     def filter_by_time(self, news_items: List[NewsItem], 
-                      hours_back: int = 1) -> List[NewsItem]:
+                    hours_back: int = 1) -> List[NewsItem]:
         """
         Фильтрует новости по времени публикации
-        
-        Args:
-            news_items: Список новостей для фильтрации
-            hours_back: Количество часов назад для фильтрации
-            
-        Returns:
-            Отфильтрованный список новостей
         """
         if not news_items:
             return []
         
         cutoff_time = datetime.now() - timedelta(hours=hours_back)
+        logger.info(f"📅 Фильтрация новостей. Отсечка времени: {cutoff_time}")
         
         filtered = []
         for item in news_items:
-            if item.published_at and item.published_at >= cutoff_time:
-                filtered.append(item)
+            if item.published_at:
+                logger.info(f"📅 Новость: {item.title[:50]}... | Дата: {item.published_at} | {'✓' if item.published_at >= cutoff_time else '✗'}")
+                if item.published_at >= cutoff_time:
+                    filtered.append(item)
+            else:
+                logger.info(f"📅 Новость: {item.title[:50]}... | Дата: НЕТ ДАТЫ")
         
         logger.info(f"📅 Из {len(news_items)} новостей {len(filtered)} "
-                   f"за последние {hours_back} час(ов)")
+                f"за последние {hours_back} час(ов)")
         return filtered
